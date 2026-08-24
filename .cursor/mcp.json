@@ -1,12 +1,10 @@
 {
   "mcpServers": {
+    "gmail": {
+      "url": "https://gmailmcp.googleapis.com/mcp/v1"
+    },
     "google-calendar": {
-      "type": "stdio",
-      "command": "npx",
-      "args": ["-y", "@cocal/google-calendar-mcp"],
-      "env": {
-        "GOOGLE_OAUTH_CREDENTIALS": "${userHome}/.config/google-calendar-mcp/gcp-oauth.keys.json"
-      }
+      "url": "https://calendarmcp.googleapis.com/mcp/v1"
     }
   }
 }
