@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "gmail": {
+      "url": "https://gmailmcp.googleapis.com/mcp/v1"
+    },
+    "google-calendar": {
+      "url": "https://calendarmcp.googleapis.com/mcp/v1"
+    }
+  }
+}
