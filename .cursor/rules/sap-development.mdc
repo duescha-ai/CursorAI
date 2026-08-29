@@ -1,0 +1,47 @@
+---
+description: SAP ABAP/RAP/Fiori development rules for Clean Core S/4HANA
+globs:
+  - "**/*.abap"
+  - "**/abap/**"
+  - "**/fiori/**"
+  - "**/cds/**"
+  - "**/sap/**"
+alwaysApply: false
+---
+
+# SAP Development Rules
+
+## Architecture
+- Clean Core only: extensions in customer namespace (Z*, Y*), never modify SAP standard
+- Prefer RAP over classic BOPF for new S/4 developments
+- S/4HANA patterns; ECC-only only when project is explicitly legacy
+
+## Naming
+- CDS views: `ZI_<name>` (interface), `ZC_<name>` (consumption)
+- Classes: `ZCL_<name>`, behavior implementations `ZBP_I_<name>`
+- Reports: `ZR_<name>`, includes `Z<name>TOP`, `Z<name>F01`
+
+## Code quality
+- ABAP 7.57+ syntax where available
+- Business logic in classes, not procedural reports
+- ABAP Unit tests for validations, calculations, mappings
+- No hardcoded credentials, hostnames, or production client IDs
+
+## AI / Cursor usage
+- Never paste real customer master data or production dumps
+- Use synthetic/mock data in examples
+- All generated code requires human review + ADT syntax check before transport
+- Document transport order and dependencies in commit/PR message
+
+## Documentation
+- Code comments: English (team standard) unless client requires German
+- Technical docs / status reports: German or English per client
+
+## Fiori / UI5
+- Fiori Elements preferred for RAP OData services
+- Freestyle UI5 only when Elements insufficient
+- OData V4 for RAP, V2 only for legacy services
+
+## Integrations (CPI/BTP)
+- Explicit error handling and retry strategy in mappings
+- No secrets in code — use Secure Parameters / Destination Service
